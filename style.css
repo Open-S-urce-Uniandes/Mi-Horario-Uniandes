@@ -1,0 +1,579 @@
+:root {
+    --light-gray: #dadce0;
+    --dark-gray: #494951;
+    --yellow: #fff353;
+    --strong-yellow: #f6c551;
+}
+
+*  {
+
+    /* Reset box model */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    font-family: sans-serif;
+    color: var(--dark-gray);
+}
+
+body {
+    background-color: white;
+}
+
+a {
+
+    /* Reset anchor styles */
+    cursor: pointer;
+    color: inherit;
+
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    border: 2px solid var(--dark-gray);
+    border-radius: 5px;
+    background-color: var(--yellow);
+
+    color: var(--dark-gray);
+    font-weight: 700;
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    border: 1px solid var(--strong-yellow);
+    border-radius: 5px;
+    background-color: white;
+
+    color: var(--dark-gray);
+    font-weight: 700;
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.small-em-text {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.checkbox {
+    background-color: var(--light-gray);
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox.chkbox-selected {
+    background-color: #d4edda;
+    color: #275825;
+    border: 1px solid #275825;
+}
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.inactive {
+    display: none !important;
+}
+
+/* Modal de bienvenida */
+
+#welcome {
+    width: 100vw;
+    margin: 0 auto;
+}
+
+#welcome header {
+    position: relative;
+}
+
+#welcome header img {
+    width: 100%;
+    display: block;
+}
+
+#welcome header .container-column {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#welcome header h1 {
+    text-align: center;
+    color: white;
+}
+
+#welcome main {
+    margin: 30px 30px;
+}
+
+#welcome main p {
+    margin: 10px 0;
+    text-align: justify;
+}
+
+#welcome footer {
+    padding: 30px;
+}
+
+@media (min-width: 1024px) {
+    #welcome {
+        width: 1024px;
+    }
+    #welcome header h1 {
+        font-size: 48px;
+    }
+}
+
+/* Configuración */
+
+#config header {
+    width: 100%;
+    height: 80px;
+    padding: 0 20px;
+    background-color: var(--yellow);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#config main {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+        "left"
+        "right";
+}
+
+#config main > :first-child {
+    grid-area: left;
+}
+
+#config main > :last-child {
+    grid-area: right;
+}
+
+#config main article {
+    padding: 20px 30px;
+}
+
+#config main article h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#config main article > p {
+    text-align: justify;
+}
+
+#config main #step1 #config-courseCode {
+    width: 100%;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid var(--dark-gray);
+    outline: none;
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+}
+
+#config main #step1 #config-courseCode:focus {
+    border-color: var(--strong-yellow);
+}
+
+#config main #step1 .course-info {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#config main #step1 .course-info .container-row {
+    width: 100%;
+}
+
+#config main #step1 #btn-select-all-options {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 80px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#config main #step1 #btn-select-all-options:hover {
+    border-color: var(--strong-yellow);
+}
+
+#config main #step1 #btn-select-all-options svg {
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    fill: var(--dark-gray);
+}
+
+#config main #step1 #course-options {
+    gap: 10px;
+}
+
+#config main #step1 #course-options .course-option {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--light-gray);
+    border: 1px solid var(--dark-gray);
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#config main #step1 #course-options .course-option.unavailable-option {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+#config main #step1 #course-options .course-option.selected-option {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+#config main #step1 #course-options .course-option > div {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#config main #step2 .container-row {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#config main #step2 .checkbox {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#config main #step2 input[type="time"] {
+    width: 100px;
+    padding: 5px 10px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#config main #step2 button {
+    margin-top: 10px;
+}
+
+#config main #step3 ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#config main #step3 li {
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#config main #step3 li label {
+    padding: 0 10px;
+}
+
+#config main #step3 #my-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#config main #step3 #my-courses .my-course {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 255, 0, 0.3);
+    border: 1px solid var(--dark-gray);
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#config main #step3 #my-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+} 
+
+#config main #step3 #my-blocks .my-block {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--light-gray);
+    border: 1px solid var(--dark-gray);
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#config main #step3 #my-blocks .my-block .checkbox {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+}
+
+#config main article #btn-open-calendar {
+    margin-top: 30px;
+    padding: 20px 30px;
+    width: 100%;
+}
+
+#config main article #no-calendars {
+    padding: 30px 20px;
+    width: 100%;
+    color: #731c24;
+    background-color: #f8d8da;
+    border: 1px solid #731c24;
+    border-radius: 5px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#config footer p {
+    width: fit-content;
+    padding: 20px 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    #config header {
+        font-size: 16px;
+    }
+    #config main {
+        padding: 20px;
+    }
+    #config main article {
+        border-radius: 5px;
+        border: 1px solid var(--light-gray);
+    }
+    #config main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "left right";
+    }
+}
+
+/* Calendario */
+
+#calendar header {
+    width: 100%;
+    height: 80px;
+    padding: 0 20px;
+    background-color: var(--yellow);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#calendar header svg {
+    fill: var(--dark-gray);
+    stroke: var(--dark-gray);
+    cursor: pointer;
+}
+
+#calendar main {
+    width: 100%;
+    height: calc(16*40px + 50px);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+}
+
+#calendar main aside {
+    height: 100%;
+}
+
+#calendar main aside .container-column {
+    height: 40px;
+    position: relative;
+}
+
+#calendar main aside .container-column::before {
+    content: "";
+    position: absolute;
+    left: 75px;
+    top: 0;
+    height: 1px;
+    width: calc(100vw - 75px);
+    border-top: 1px solid var(--light-gray);
+}
+
+#calendar main aside .container-column p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    bottom: 50%; /* Mueve los elementos para que se alineen con el borde superior */
+}
+
+#calendar main .table {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#calendar main .table .table-header {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(120px, 1fr));
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar main .table .table-header .container-column {
+    height: 100%;
+    position: relative;
+}
+
+#calendar main .table .table-header .container-column h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+
+#calendar main .table .table-header .container-column::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 45px;
+    height: calc(15*40px + 5px);
+    width: 1px;
+    border-left: 1px solid var(--light-gray);
+}
+
+#calendar main .table .table-content {
+    position: relative;
+    background-color: transparent;
+}
+
+#calendar main .table .table-content .time-block {
+    position: absolute;
+    width: calc(100%/6);
+    border: 1px solid var(--dark-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 20px 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar main .table .table-content .time-block p {
+    font-size: 12px;
+    text-align: center;
+}
+
+#calendar footer {
+    padding: 0px 30px 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#calendar footer p {
+    text-align: center;
+    font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+    #calendar header {
+        font-size: 16px;
+    }
+}
+
+
+/* Animaciones de carga */
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid var(--yellow);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--yellow) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}  
+@keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
